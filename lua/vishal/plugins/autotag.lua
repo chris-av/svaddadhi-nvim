@@ -31,33 +31,5 @@ return {
 			},
 		})
 
-		-- Force enable the module
-		vim.api.nvim_create_autocmd({ "FileType" }, {
-			pattern = {
-				"html",
-				"javascript",
-				"typescript",
-				"javascriptreact",
-				"typescriptreact",
-				"svelte",
-				"vue",
-				"tsx",
-				"jsx",
-				"rescript",
-				"xml",
-				"php",
-				"markdown",
-				"astro",
-				"glimmer",
-				"handlebars",
-				"hbs",
-			},
-			callback = function()
-				if not vim.b.ts_autotag_setup then
-					vim.b.ts_autotag_setup = true
-					require("nvim-ts-autotag").setup_buffer()
-				end
-			end,
-		})
 	end,
 }
