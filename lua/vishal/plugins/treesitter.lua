@@ -46,10 +46,7 @@ return {
 			indent = {
 				enable = true,
 			},
-			-- enable autotagging (requires nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
+
 			-- incremental selection configuration
 			incremental_selection = {
 				enable = true,
