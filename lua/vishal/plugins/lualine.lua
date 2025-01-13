@@ -8,7 +8,7 @@ return {
 		-- configure lualine with Vitesse theme while keeping existing customizations
 		lualine.setup({
 			options = {
-				theme = "vitesse", -- use the Vitesse theme
+				theme = "tokyonight", -- use the tokyonight theme
 			},
 			sections = {
 				lualine_x = {
