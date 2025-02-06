@@ -13,6 +13,7 @@ return {
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local on_attach = require("vishal.utils.on_attach")
 
 
     -- mason
@@ -58,7 +59,6 @@ return {
 			},
 		})
 
-		local keymap = vim.keymap -- for conciseness
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
@@ -68,7 +68,10 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-    lspconfig["pyright"].setup({})
+    lspconfig["pyright"].setup({
+      capabilities=capabilities,
+      on_attach=on_attach,
+    })
 
 	end,
 }
