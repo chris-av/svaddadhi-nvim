@@ -26,6 +26,7 @@ return {
 
 		mason_lspconfig.setup({
 			-- list of servers for mason to install
+      automatic_installation = true,
 			ensure_installed = {
 				"ts_ls",
 				"html",
@@ -40,18 +41,19 @@ return {
 			},
 		})
 
-		-- Add a setup handler to rename tsserver to ts_ls
-		mason_lspconfig.setup_handlers({
-			-- Default handler for all servers
-			function(server_name)
-				local server = server_name
-				-- Convert tsserver to ts_ls for LSP configuration
-				if server_name == "tsserver" then
-					server = "ts_ls"
-				end
-				require("lspconfig")[server].setup({})
-			end,
-		})
+		-- -- Add a setup handler to rename tsserver to ts_ls
+		-- mason_lspconfig.setup_handlers({
+		-- 	-- Default handler for all servers
+		-- 	function(server_name)
+		-- 		local server = server_name
+		-- 		-- Convert tsserver to ts_ls for LSP configuration
+		-- 		if server_name == "tsserver" then
+		-- 			server = "ts_ls"
+		-- 		end
+  --       print("setting up server : " .. server)
+		-- 		require("lspconfig")[server].setup({})
+		-- 	end,
+		-- })
 
 		mason_tool_installer.setup({
 			ensure_installed = {
