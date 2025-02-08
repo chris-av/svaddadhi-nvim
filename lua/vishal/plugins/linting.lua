@@ -4,6 +4,14 @@ return {
 	config = function()
 		local lint = require("lint")
 
+    local pylint_config = lint.linters.pylint
+    local cwd = vim.uv.cwd()
+    local pylint_env = vim.fs.joinpath(cwd, "venv", "bin", "pylint")
+
+    if vim.uv.fs_stat(pylint_env) then
+      pylint_config.cmd = pylint_env
+    end
+
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
